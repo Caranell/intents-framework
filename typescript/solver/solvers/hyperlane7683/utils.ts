@@ -19,7 +19,7 @@ export async function settleOrder(
     msg: "Settling Intent",
     intent: `${solverName}-${orderId}`,
   });
-
+  
   const destinationSettlers = fillInstructions.reduce<
     Record<string, Array<string>>
   >((acc, fillInstruction) => {
@@ -46,9 +46,25 @@ export async function settleOrder(
               destinationSettler,
               filler,
             );
+            const dest = Hyperlane7683__factory.connect(
+              '0xb3135158F5cC4d6D1a080F4aEf3e5f617f461533',
+              filler,
+            );
             try {
-              const value = await destination.quoteGasPayment(originChainId);
 
+              // const [value1, value] = await Promise.all([
+              //   dest.quoteGasPayment(originChainId).catch(e=> {
+              //     console.log('error', e)
+              //   }),
+              //   destination.quoteGasPayment(originChainId).catch(e=> {
+              //     console.log(e)
+              //   }),
+              // ])
+
+              const value = await dest.quoteGasPayment(originChainId)
+
+              // console.log('value1', value1)
+              console.log('value', value)
               const _tx = await destination.populateTransaction.settle(
                 [orderId],
                 { value },

@@ -4,6 +4,9 @@ import { zeroAddress } from 'viem';
 const ROUTER = '0xf614c6bF94b022E16BEF7dBecF7614FFD2b201d3';
 const ITT = '0x5f94BC7Fb4A2779fef010F96b496cD36A909E818';
 
+const ROUTER_ESPRESSO = '0x3ABc386CFd7f362ADaC5D447aDbd527c4bFe5686'
+const ROUTER_ARBI_SEPOLIA = '0x8D0A2fC6A211aca55E53dcf3744e1BCE9080eb92'
+
 const NETWORK_SEPARATOR = '101010';
 
 export const TOP_MAX = {
@@ -23,6 +26,10 @@ export const TOP_MAX = {
     [ITT]: 100e18,
     [zeroAddress]: 1e16,
   },
+  'caranellspresso': {
+    [ITT]: 100e18,
+    [zeroAddress]: 1e16,
+  }
 }
 
 // A list of Warp Route token configs
@@ -164,9 +171,28 @@ export const warpRouteConfigs: WarpCoreConfig = {
     },
     {
       addressOrDenom: zeroAddress,
-      chainName: 'arbitrumsepolia',
-      collateralAddressOrDenom: ROUTER,
+      chainName: 'caranellspresso',
+      collateralAddressOrDenom: ROUTER_ESPRESSO,
       connections: [
+        {
+          token: 'ethereum|arbitrumsepolia|' + zeroAddress,
+        }
+      ],
+      decimals: 18,
+      logoURI: '/deployments/warp_routes/ETH/logo.svg',
+      name: 'ETH',
+      standard: 'IntentNative',
+      symbol: 'ETH',
+      protocol: 'ethereum',
+    },
+    {
+      addressOrDenom: zeroAddress,
+      chainName: 'arbitrumsepolia',
+      collateralAddressOrDenom: ROUTER_ARBI_SEPOLIA,
+      connections: [
+        {
+          token: 'ethereum|caranellspresso|' + zeroAddress,
+        },
         {
           token: 'ethereum|optimismsepolia|' + zeroAddress,
         },
@@ -224,10 +250,10 @@ export const warpRouteConfigs: WarpCoreConfig = {
       },
       {
         amount: 1e10,
-        origin: ['optimismsepolia', 'basesepolia', 'arbitrumsepolia', 'sepolia'].join(
+        origin: ['optimismsepolia', 'basesepolia', 'arbitrumsepolia', 'sepolia', 'caranellspresso'].join(
           NETWORK_SEPARATOR,
         ),
-        destination: ['optimismsepolia', 'basesepolia', 'arbitrumsepolia'].join(NETWORK_SEPARATOR),
+        destination: ['optimismsepolia', 'basesepolia', 'arbitrumsepolia', 'caranellspresso'].join(NETWORK_SEPARATOR),
         addressOrDenom: zeroAddress,
       },
       {

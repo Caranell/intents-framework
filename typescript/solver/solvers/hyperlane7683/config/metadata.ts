@@ -1,4 +1,4 @@
-import { AddressZero } from "@ethersproject/constants";
+// import { AddressZero } from "@ethersproject/constants";
 
 import {
   type Hyperlane7683Metadata,
@@ -52,7 +52,7 @@ const metadata: Hyperlane7683Metadata = {
       chainName: "optimismsepolia",
     },
     {
-      address: "0xf614c6bF94b022E16BEF7dBecF7614FFD2b201d3",
+      address: "0x8D0A2fC6A211aca55E53dcf3744e1BCE9080eb92",
       chainName: "arbitrumsepolia",
     },
     {
@@ -66,33 +66,37 @@ const metadata: Hyperlane7683Metadata = {
       pollInterval: 1000,
       confirmationBlocks: 2,
     },
+    {
+      address: "0xb3135158F5cC4d6D1a080F4aEf3e5f617f461533",
+      chainName: "caranellspresso",
+    }
   ],
   customRules: {
     rules: [
-      {
-        name: "filterByTokenAndAmount",
-        args: {
-          "11155420": {
-            "0x5f94BC7Fb4A2779fef010F96b496cD36A909E818": BigInt(50e18),
-            [AddressZero]: BigInt(5e15),
-          },
-          "84532": {
-            "0x5f94BC7Fb4A2779fef010F96b496cD36A909E818": BigInt(50e18),
-            [AddressZero]: BigInt(5e15),
-          },
-          "421614": {
-            "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": null,
-            [AddressZero]: BigInt(5e15),
-          },
-          "11155111": {
-            "0x5f94BC7Fb4A2779fef010F96b496cD36A909E818": BigInt(5e18),
-            [AddressZero]: BigInt(5e10),
-          },
-        },
-      },
-      {
-        name: "intentNotFilled",
-      },
+      // {
+      //   name: "filterByTokenAndAmount",
+      //   args: {
+      //     "11155420": {
+      //       "0x5f94BC7Fb4A2779fef010F96b496cD36A909E818": BigInt(50e18),
+      //       [AddressZero]: BigInt(5e15),
+      //     },
+      //     "84532": {
+      //       "0x5f94BC7Fb4A2779fef010F96b496cD36A909E818": BigInt(50e18),
+      //       [AddressZero]: BigInt(5e15),
+      //     },
+      //     "421614": {
+      //       "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": null,
+      //       [AddressZero]: BigInt(5e15),
+      //     },
+      //     "11155111": {
+      //       "0x5f94BC7Fb4A2779fef010F96b496cD36A909E818": BigInt(5e18),
+      //       [AddressZero]: BigInt(5e10),
+      //     },
+      //   },
+      // },
+      // {
+      //   name: "intentNotFilled",
+      // },
     ],
   },
 };

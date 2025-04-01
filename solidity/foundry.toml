@@ -22,21 +22,21 @@
   verbosity = 4
 
 [etherscan]
-  mainnet = { key = "${API_KEY_ETHERSCAN}" }
-  optimism = { key = "${API_KEY_OPTIMISTIC_ETHERSCAN}" }
-  arbitrum = { key = "${API_KEY_ARBISCAN}" }
-  base = { key = "${API_KEY_BASESCAN}" }
-  berachain = { key = "${API_KEY_BERACAHAINSCAN}", url = "https://api.routescan.io/v2/network/mainnet/evm/80094/etherscan/api/" }
-  form = { key = "${API_KEY_FORMSCAN}", url = "https://explorer.form.network/api" }
-  gnosis_chain = { key = "${API_KEY_GNOSISSCAN}" }
-  unichain = { key = "${API_KEY_UNICHAIN}" }
-  artela = { key = "${API_KEY_ALTERA}", url = "https://artscan.artela.network/api" }
+  # mainnet = { key = "${API_KEY_ETHERSCAN}" }
+  # optimism = { key = "${API_KEY_OPTIMISTIC_ETHERSCAN}" }
+  # arbitrum = { key = "${API_KEY_ARBISCAN}" }
+  # base = { key = "${API_KEY_BASESCAN}" }
+  # berachain = { key = "${API_KEY_BERACAHAINSCAN}", url = "https://api.routescan.io/v2/network/mainnet/evm/80094/etherscan/api/" }
+  # form = { key = "${API_KEY_FORMSCAN}", url = "https://explorer.form.network/api" }
+  # gnosis_chain = { key = "${API_KEY_GNOSISSCAN}" }
+  # unichain = { key = "${API_KEY_UNICHAIN}" }
+  # artela = { key = "${API_KEY_ALTERA}", url = "https://artscan.artela.network/api" }
 
-  avalanche = { key = "${API_KEY_SNOWTRACE}" }
-  bnb_smart_chain = { key = "${API_KEY_BSCSCAN}" }
-  goerli = { key = "${API_KEY_ETHERSCAN}" }
-  polygon = { key = "${API_KEY_POLYGONSCAN}" }
-  sepolia = { key = "${API_KEY_ETHERSCAN}" }
+  # avalanche = { key = "${API_KEY_SNOWTRACE}" }
+  # bnb_smart_chain = { key = "${API_KEY_BSCSCAN}" }
+  # goerli = { key = "${API_KEY_ETHERSCAN}" }
+  # polygon = { key = "${API_KEY_POLYGONSCAN}" }
+  # sepolia = { key = "${API_KEY_ETHERSCAN}" }
 
 [fmt]
   bracket_spacing = true
@@ -49,6 +49,7 @@
   wrap_comments = true
 
 [rpc_endpoints]
+  espresso = "http://82.202.141.77:8547"
   mainnet = "https://rpc.ankr.com/eth"
   optimism = "https://mainnet.optimism.io"
   arbitrum = "https://arb1.arbitrum.io/rpc"

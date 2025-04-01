@@ -1,4 +1,6 @@
+import { arbitrum, arbitrumsepolia } from '@hyperlane-xyz/registry';
 import { ChainMap, ChainMetadata } from '@hyperlane-xyz/sdk';
+import { ProtocolType } from '@hyperlane-xyz/utils';
 
 // A map of chain names to ChainMetadata
 // Chains can be defined here, in chains.json, or in chains.yaml
@@ -18,27 +20,23 @@ export const chains: ChainMap<ChainMetadata & { mailbox?: Address }> = {
   //   ...eclipsemainnet,
   //   mailbox: eclipsemainnetAddresses.mailbox,
   // },
-  // mycustomchain: {
-  //   protocol: ProtocolType.Ethereum,
-  //   chainId: 123123,
-  //   domainId: 123123,
-  //   name: 'mycustomchain',
-  //   displayName: 'My Chain',
-  //   nativeToken: { name: 'Ether', symbol: 'ETH', decimals: 18 },
-  //   rpcUrls: [{ http: 'https://mycustomchain-rpc.com' }],
-  //   blockExplorers: [
-  //     {
-  //       name: 'MyCustomScan',
-  //       url: 'https://mycustomchain-scan.com',
-  //       apiUrl: 'https://api.mycustomchain-scan.com/api',
-  //       family: ExplorerFamily.Etherscan,
-  //     },
-  //   ],
-  //   blocks: {
-  //     confirmations: 1,
-  //     reorgPeriod: 1,
-  //     estimateBlockTime: 10,
-  //   },
-  //   logoURI: '/logo.svg',
-  // },
+  arbitrumsepolia: {
+    ...arbitrumsepolia,
+    rpcUrls: [{ http: 'https://arbitrum-sepolia.infura.io/v3/273b4bf05f3a455e8ea02581cde8a0d5' }],
+  },
+  caranellspresso: {
+    protocol: ProtocolType.Ethereum,
+    chainId: 30101999,
+    domainId: 30101999,
+    name: 'caranellspresso',
+    displayName: 'caranellspresso',
+    nativeToken: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+    rpcUrls: [{ http: 'http://82.202.141.77:8500' }],
+    blocks: {
+      confirmations: 1,
+      reorgPeriod: 1,
+      estimateBlockTime: 10,
+    },
+    logoURI: '/typescript/ui/src/images/logos/app-logo.svg',
+  },
 };

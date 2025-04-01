@@ -9,16 +9,22 @@ import { objMerge } from "@hyperlane-xyz/utils";
 
 const customChainMetadata = {
   // Example custom configuration
-  // basesepolia: {
-  //   rpcUrls: [
-  //     {
-  //       http: "https://base-sepolia-rpc.publicnode.com",
-  //       pagination: {
-  //         maxBlockRange: 3000,
-  //       },
-  //     },
-  //   ],
-  // },
+  caranellspresso: {
+    chainId: 30101999,
+    domainId: 30101999,
+    name: "caranellspresso",
+    protocol: 'ethereum',
+    nativeToken: { decimals: 18, name: 'Ether', symbol: 'ETH' },
+    displayName: 'CaranellSpresso',
+    rpcUrls: [
+      {
+        http: "http://82.202.141.77:8547",
+        // pagination: {
+        //   maxBlockRange: 3000,
+        // },
+      },
+    ],
+  },
 };
 
 const chainMetadata = objMerge<ChainMap<ChainMetadata>>(
@@ -27,6 +33,8 @@ const chainMetadata = objMerge<ChainMap<ChainMetadata>>(
   10,
   true,
 );
+
+console.log('chainMetadata', chainMetadata)
 
 z.record(z.string(), ChainMetadataSchema).parse(chainMetadata);
 
